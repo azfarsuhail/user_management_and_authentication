@@ -1,7 +1,3 @@
-Here's a concise README with usage instructions:
-
----
-
 # Panaversity Authentication System
 
 This project is a Next.js application integrated with a FastAPI backend to handle user authentication for Panaversity, a Generative AI University.

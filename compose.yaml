@@ -2,13 +2,13 @@ version: "3.8"
 name : panaversity
 services:
   user-service:
-    image: user-service
+    image: back-end
     build:
-      context: ./user-service
+      context: ./back-end
       dockerfile: Dockerfile.dev
     restart: always
     volumes:
-      - ./user-service:/code
+      - ./back-end:/code
     depends_on:
       - postgres_db
       - broker
@@ -24,12 +24,12 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - FASTAPI_URL=http://user-service:8000
+      - FASTAPI_URL=http://back-end:8000
     volumes:
       - .:/front-end
       - /front-end/node_modules
     depends_on:
-      - user-service
+      - back-end
 
   postgres_db:
     image: postgres:latest
