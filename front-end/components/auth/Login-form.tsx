@@ -65,7 +65,7 @@ export const LoginForm = () => {
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     setError("");
-    setSuccess("");    
+    setSuccess("");
 
     startTransition(() => {
       login(values)
@@ -77,7 +77,7 @@ export const LoginForm = () => {
               description: data.message ? data.message : "Request Failed, Try Again",
               action: (
                 <ToastAction altText="Dismiss">Dismiss</ToastAction>
-               )
+              )
             })
             form.reset();
           }
@@ -89,10 +89,10 @@ export const LoginForm = () => {
               title: "Login Success",
               description: data.message ? data.message : "Welcome to Panaversity",
               action: (
-               <ToastAction altText="Close">Close</ToastAction>
+                <ToastAction altText="Close">Close</ToastAction>
               ),
             })
-            router.push(callbackUrl || DEFAULT_LOGIN_REDIRECT );
+            router.push(callbackUrl || DEFAULT_LOGIN_REDIRECT);
           }
         })
     });
@@ -105,55 +105,55 @@ export const LoginForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
           <div className="space-y-4">
-              <>
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          disabled={isPending}
-                          placeholder="example@gmail.com"
-                          type="email"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Password</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          disabled={isPending}
-                          placeholder="******"
-                          type="password"
-                        />
-                      </FormControl>
-                      <Button
-                        size="sm"
-                        variant="link"
-                        asChild
-                        className="px-0 font-normal"
-                      >
-                        <Link href="/auth/reset-password">Forgot password?</Link>
-                      </Button>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </>
+            <>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        placeholder="example@gmail.com"
+                        type="email"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        placeholder="******"
+                        type="password"
+                      />
+                    </FormControl>
+                    <Button
+                      size="sm"
+                      variant="link"
+                      asChild
+                      className="px-0 font-normal"
+                    >
+                      <Link href="/auth/reset-password">Forgot password?</Link>
+                    </Button>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </>
           </div>
           <FormError message={error || urlError} />
-          <FormSuccess message={success}  />
+          <FormSuccess message={success} />
           <Button disabled={isPending} type="submit" className="w-full">
             {"Login"}
           </Button>
@@ -163,7 +163,9 @@ export const LoginForm = () => {
             asChild
             className="w-full"
           >
+
             <Link href="/register">Don&apos;t have an account? Register</Link>
+
           </Button>
         </form>
       </Form>

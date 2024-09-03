@@ -1,7 +1,7 @@
 version: "3.8"
 name : panaversity
 services:
-  user-service:
+  back-end:
     image: back-end
     build:
       context: ./back-end
@@ -22,12 +22,8 @@ services:
 
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - FASTAPI_URL=http://back-end:8000
     volumes:
       - .:/front-end
-      - /front-end/node_modules
     depends_on:
       - back-end
 

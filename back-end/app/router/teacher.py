@@ -1,14 +1,12 @@
 # router/teacher.py
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
-from app.models import Teacher, User, UserType
-from app.auth import get_current_user
-from app.db_engine import get_session
+from app.models.user import User, UserType
+from app.models.teacher import Teacher
+from app.utils.auth import get_current_user
+from app.database import get_session
 
-teacher_router = APIRouter(
-    prefix="/teacher",
-    tags=["teacher"]
-)
+teacher_router = APIRouter()
 
 
 @teacher_router.get("/profile", response_model=Teacher)
